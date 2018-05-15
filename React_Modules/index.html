@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+      <script src='https://unpkg.com/babel-standalone@6/babel.min.js'></script>
+      <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+
+  <title>Document</title>
+</head>
+<body>
+
+
+<div id="content"></div>
+
+
+<script type="text/babel">
+
+window.users = [{
+
+id:1,
+name: 'Rohito',
+followers:[2,3]
+},{
+id:2,
+name: 'Lavish',
+followers:[3]
+},
+{
+id:3,
+name: 'Sanju',
+followers:[1]
+}
+];
+
+
+
+
+
+function contructFollowerFunction(users, id){
+
+return users.filter((user) => {
+ return id.includes(user.id)
+
+})
+}
+
+function App({users}){
+  return (
+    <div>
+
+      {users.map(user => {
+
+      return <Followers followers={contructFollowerFunction(users, user.followers) }/>
+      })}
+    </div>
+  )
+}
+
+
+ReactDOM.render( <App users={window.users}/> , document.getElementById('content'))
+
+
+
+// }
+//
+//
+//
+// // props.users can be decontructed using {users}
+// // users = props.users
+//
+function Followers({followers}) {
+return (
+    <div>
+        {followers.map((follower) => {
+
+        return <small key={follower}>{follower.name}</small>
+        })}
+        </div>
+);
+}
+//
+// function contructFollowerFunction(users, id){
+//
+// return users;
+// }
+//
+//
+//
+// function User({users}) {
+//     return (
+//         <div>
+//             {users.map((user) => {
+//            return <div className="user" key = {user.id}>
+//                {user.name}
+//                <Followers followers={contructFollowerFunction(users, user.followers)} />
+//                </div>
+//             })}
+//         </div>
+//             )
+// }
+//
+//
+//
+//
+
+// function App() {
+//         return (
+//         <User />
+//         )
+//     }
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
