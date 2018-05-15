@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src='https://unpkg.com/babel-standalone@6/babel.min.js'></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <title>React Components</title>
+</head>
+<body>
+
+  <div class="jumbotron">
+  <div id="content"></div>
+  </div>
+
+  <script src="data.js" type="text/babel"></script>
+
+<script type='text/babel'>
+
+
+
+//USER COMPONENT
+// var UserComponent = React.createClass({
+//
+//   render: function(props){
+//     console.log(props)
+//
+//     return (
+//       <div>
+//           HElloo
+//       </div>
+//     )
+//   }
+//
+// });
+//
+//
+//
+// ReactDOM.render(
+//   <UserComponent />, document.getElementById('content')
+// )
+
+
+function UserComponent(props){
+
+        return (<p>Name: {props.user.name}, Age: {props.user.age}</p>)
+
+}
+
+function FollowersComponent(props){
+        return (<p className="text-danger">{props.user.name} has {props.user.followers.length} followers:  {props.user.followers.join(" & ")} </p> )
+    }
+
+function WrapperComponent(props){
+        return (<div className="text-primary"><UserComponent user={props.user}/>  <FollowersComponent user={props.user}/></div>)
+    }
+
+
+
+
+
+let theUsers = [];
+
+    for(let user of users){
+        theUsers.push(< WrapperComponent user={user} />);
+    }
+
+    ReactDOM.render(theUsers, document.getElementById('content'));
+
+
+
+
+
+
+// var OneComponent = React.createClass({
+//
+//
+//   render: function(){
+//     return(
+//       <div>
+//
+//         <h1>Hellooooo {this.props.user1.name}</h1>
+//         <h1>Hellooooo {this.props.user2.name}</h1>
+//       </div>
+//     )
+//   }
+//
+//
+// });
+//
+// var user1 = {name: 'RohitoOo' , job: "Coder" }
+// var user2 = {name: 'Bhambhani', job: 'Business Analyst'}
+//
+//
+// ReactDOM.render(<OneComponent user1={user1} user2={user2}/> , document.getElementById('1'));
+//
+
+
+
+
+
+
+
+
+
+//Follower Component
+// var FollowerComponent = React.createClass({
+//
+//   render: function(props){
+//     return (
+//       <div>
+//         Follower Count:
+//       </div>
+//     )
+//   }
+//
+// });
+//
+//
+// // Wrapper
+// var Wrapper = React.createClass({
+//
+//   render: function(props){
+//     return (
+//       <div>
+//         <UserComponent />
+//         <FollowerComponent />
+//
+//       </div>
+//     )
+//   }
+//
+// });
+//
+//
+// ReactDOM.render(
+//   <Wrapper />, document.getElementById('1')
+// )
+
+
+// for(let i = 1 ; i < 5 ; i++){}
+
+// var ListElement1 = React.createElement(
+//   "h2",
+//   {id:"anything"},
+//   "Hello",
+//   {props.name}
+// );
+// var ListElement2 = React.createElement(
+//   "h2",
+//   {id:"anything"},
+//   "Hellooo"
+// );
+
+
+//
+// ReactDOM.render(ListElement1 name="Rohito" , document.getElementById('1'));
+// ReactDOM.render(ListElement2 name="Bhambhani", document.getElementById('2'));
+//
+
+
+// var headerElement = React.createElement(
+//
+//   'a',
+//   {href: "http://www.facebook.com"},
+//   {target: "blank"},
+//   "Click me",
+// );
+
+
+// function NameComponent(props){
+//
+// console.log(props)
+//   return <h1>My name is {props.name}</h1>
+// }
+//
+//
+// ReactDOM.render(
+//   <NameComponent
+//   name = "Rohito"
+//   age = "28"
+//   Goal = "100K 2020 Jan"
+//   a= "www.google.com"
+//   />, document.getElementById("abc"));
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+<!-- <script type='text/babel'>
+
+var First = React.createClass({
+
+  render: function(){
+    return(
+
+          <div>
+            Hello
+          </div>
+  )}
+})
+
+
+ReactDOM.render(
+  <First />, document.getElementById('body_content')
+)
+
+
+</script> -->
+
+
+
+
+</body>
+</html>
